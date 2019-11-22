@@ -5,7 +5,14 @@ import org.unicef.parenthood.repository.model.TestEntity
 import org.unicef.parenthood.repository.model.TestQuestion
 
 class FakeRepository() {
-    val entry0 = ArticleEntity(
+    private val textEntity = TestEntity("oXSzsjXzzJbM0Nehz6rr",
+        arrayListOf(
+            TestQuestion(0, "Question", "Answer"),
+            TestQuestion(0, "Question1", "Answer1"),
+            TestQuestion(0, "Question2", "Answer2")),
+        authorName = "TestAuthor")
+
+    private val entry0 = ArticleEntity(
         id = "oXSzsjXzzJbM0Nehz6OA",
         title = "Title",
         test = TestEntity("oXSzsjXzzJbM0Nehz6rr",
@@ -19,7 +26,7 @@ class FakeRepository() {
         categories = listOf("Safety", "Food"))
 
 
-    val entry1 = ArticleEntity(
+    private val entry1 = ArticleEntity(
         id = "oXSzsjXzzJbM0Nehz6OB",
         title = "Title",
         test = TestEntity("oXSzsjXzzJbM0Nehz6rr",
@@ -32,7 +39,7 @@ class FakeRepository() {
         content = "Most of the advice I share is focused on infants, toddlers and preschoolers, but since my own children are now well past those years (my oldest just turned 21!), it occurred to me that I should be sharing more often from my “long view” perspective. Like most parents, I’ve had my worries. For instance, despite",
         categories = listOf("Safety", "Food"))
 
-    val entry2 = ArticleEntity(
+    private val entry2 = ArticleEntity(
         id = "oXSzsjXzzJbM0Nehz6OC",
         title = "Title",
         test = TestEntity("oXSzsjXzzJbM0Nehz6rr",
@@ -52,5 +59,21 @@ class FakeRepository() {
 
     suspend fun getDiscoverable(): List<ArticleEntity> {
         return listOf(entry0, entry1, entry2)
+    }
+
+    suspend fun addTest(): String{
+        return "newtestid"
+    }
+
+    suspend fun addTestFailed(): String{
+        return "-1"
+    }
+
+    suspend fun getTest(): TestEntity {
+        return textEntity
+    }
+
+    suspend fun getTestFailed(): TestEntity? {
+        return null
     }
 }

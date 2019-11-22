@@ -1,12 +1,50 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="Theme.Parenthood" parent="Theme.MaterialComponents.Light">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    
+
+    <style name="Theme.Parenthood.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+<!--    greenButton-->
+    <style name="buttonStyleGreen" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/colorGreen</item>
+        <item name="cornerRadius">50dp</item>
+    </style>
+
+    <!--    whiteButton-->
+    <style name="buttonStyleWhite" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/colorWhite</item>
+<!--        <item name="android:background">@color/colorWhite</item>-->
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="cornerRadius">50dp</item>
+    </style>
+
+<!-- whiteButtonShape-->
+    <style name="buttonBlueShape" parent="Widget.MaterialComponents.Button.OutlinedButton">>
+        <item name="shapeAppearance">@style/shapeButton</item>
+        <item name="cornerRadius">50dp</item>
+    </style>
+    <style name="shapeButton">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyTopRight">cut</item>
+        <item name="cornerFamilyBottomRight">cut</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+
+
+
+
 
 </resources>

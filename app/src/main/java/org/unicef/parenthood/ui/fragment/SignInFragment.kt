@@ -1,34 +1,36 @@
 package org.unicef.parenthood.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.firebase.auth.FirebaseAuth
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import org.unicef.parenthood.databinding.FragmentSignInBinding
+import org.unicef.parenthood.ui.viewmodel.SignInViewModel
 
-import org.unicef.parenthood.R
-
-/**
- * A simple [Fragment] subclass.
- */
 class SignInFragment : Fragment() {
-    private lateinit var auth: FirebaseAuth
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        auth = FirebaseAuth.getInstance()
-    }
+    private val viewModel: SignInViewModel by viewModels()
+    private lateinit var binding: FragmentSignInBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_in, container, false)
+
+        binding = FragmentSignInBinding.inflate(
+            inflater, container,
+            false
+        )
+        return binding.root
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnLogin.setOnClickListener {
+            val email = binding.emailInputEditTextLogin.text.toString()
+            val password = binding.passwordInputEditTextLogin.text.toString()
+            viewModel.onLoginClicked(email, password)
+        }
     }
 }

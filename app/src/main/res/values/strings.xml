@@ -18,5 +18,4 @@
     <string name="register">Register</string>
     <string name="create_new_test_caption">Create a new Test for the Article</string>
     <string name="passing_test">Прохождение теста</string>
-    <string name="your_answer">Your answer...</string>
 </resources>

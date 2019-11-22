@@ -79,4 +79,7 @@ dependencies {
     kapt "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
 }

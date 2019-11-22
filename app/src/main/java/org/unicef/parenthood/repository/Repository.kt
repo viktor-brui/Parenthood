@@ -13,6 +13,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.unicef.parenthood.repository.model.ArticleEntity
+import org.unicef.parenthood.repository.model.TestEntity
 import java.util.ArrayList
 
 /**
@@ -21,6 +22,7 @@ import java.util.ArrayList
 class Repository() {
     private val MAX_RANGE = 10 // maximum number of articles per feed
     private val ARTICLES_COLLECTION  = "articles"
+    private val TESTS_COLLECTION  = "tests"
 
     private val recommendedArticles: MutableList<ArticleEntity> = mutableListOf()
     private val discoveryArticles: MutableList<ArticleEntity> = mutableListOf()
@@ -44,12 +46,34 @@ class Repository() {
         return recommendedArticles
         }
 
+    suspend fun addTest(): String{
+        return "newtestid"
+    }
+
+//    suspend fun getTest(): TestEntity {
+//        val docRef = firestore.collection(TESTS_COLLECTION).document("SF")
+//        docRef.get()
+//            .addOnSuccessListener { document ->
+//                if (document != null) {
+//                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+//                } else {
+//                    Log.d(TAG, "No such document")
+//                }
+//            }
+//            .addOnFailureListener { exception ->
+//                Log.d(TAG, "get failed with ", exception)
+//            }
+//        return
+//    }
+
     suspend fun getDiscoverable(): List<ArticleEntity> {
         urls.forEach{
             discoveryArticles.addAll(fetchFeed(it))
         }
         return discoveryArticles
     }
+
+
 
     private suspend fun fetchFeed(url: String): List<ArticleEntity> {
         return withContext(Dispatchers.IO){
@@ -64,5 +88,7 @@ class Repository() {
             )}
         }
     }
+
+
 
 }

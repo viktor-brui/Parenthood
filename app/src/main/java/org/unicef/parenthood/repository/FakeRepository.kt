@@ -5,7 +5,8 @@ import org.unicef.parenthood.repository.model.TestEntity
 import org.unicef.parenthood.repository.model.TestQuestion
 
 class FakeRepository() {
-    private val textEntity = TestEntity("oXSzsjXzzJbM0Nehz6rr",
+    private val testEntity = TestEntity("oXSzsjXzzJbM0Nehz6rr",
+        "oXSzsjXzzJbM0Nehz6OA",
         arrayListOf(
             TestQuestion(0, "Question", "Answer"),
             TestQuestion(0, "Question1", "Answer1"),
@@ -16,6 +17,7 @@ class FakeRepository() {
         id = "oXSzsjXzzJbM0Nehz6OA",
         title = "Title",
         test = TestEntity("oXSzsjXzzJbM0Nehz6rr",
+            "oXSzsjXzzJbM0Nehz6OA",
             arrayListOf(
                 TestQuestion(0, "Question", "Answer"),
                 TestQuestion(0, "Question1", "Answer1"),
@@ -30,6 +32,7 @@ class FakeRepository() {
         id = "oXSzsjXzzJbM0Nehz6OB",
         title = "Title",
         test = TestEntity("oXSzsjXzzJbM0Nehz6rr",
+            "oXSzsjXzzJbM0Nehz6OB",
             arrayListOf(
                 TestQuestion(0, "Question", "Answer"),
                 TestQuestion(0, "Question1", "Answer1"),
@@ -43,6 +46,7 @@ class FakeRepository() {
         id = "oXSzsjXzzJbM0Nehz6OC",
         title = "Title",
         test = TestEntity("oXSzsjXzzJbM0Nehz6rr",
+            "oXSzsjXzzJbM0Nehz6OC",
             arrayListOf(
                 TestQuestion(0, "Question", "Answer"),
                 TestQuestion(0, "Question1", "Answer1"),
@@ -70,7 +74,7 @@ class FakeRepository() {
     }
 
     suspend fun getTest(): TestEntity {
-        return textEntity
+        return testEntity
     }
 
     suspend fun getTestFailed(): TestEntity? {

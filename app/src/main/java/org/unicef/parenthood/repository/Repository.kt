@@ -1,20 +1,13 @@
 package org.unicef.parenthood.repository
 
-import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.prof.rssparser.Article
 import com.prof.rssparser.Parser
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.unicef.parenthood.repository.model.ArticleEntity
 import org.unicef.parenthood.repository.model.TestEntity
-import java.util.ArrayList
 
 /**
  * hub for network requests
@@ -46,12 +39,26 @@ class Repository() {
         return recommendedArticles
     }
 
-    suspend fun addTest(): String{
-        return "newtestid"
+    suspend fun addTest(testEntity: TestEntity){
+
+        val newTest = hashMapOf(
+            "articleId" to testEntity.articleId,
+            "questions" to testEntity.questions,
+            "authorName" to testEntity.authorName
+        )
+
+        firestore.collection(TESTS_COLLECTION).document() //???
+            .set(newTest)
+            .addOnSuccessListener {
+//                todo
+            }
+            .addOnFailureListener {
+
+//                   todo
+            }
     }
 
     suspend fun getTest(articleId: String): TestEntity? {
-
         val query = firestore.collection(TESTS_COLLECTION).whereEqualTo("articleId", "CA")
         val result =
             query.get()

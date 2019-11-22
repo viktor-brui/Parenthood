@@ -7,4 +7,14 @@
     <string name="i_plan_to_have_a_baby">Я планирую ребенка</string>
     <string name="create_new_test_caption">Создание нового теста по статье</string>
     <string name="passing_test">Прохождение теста</string>
+    <string name="about_text">О приложении</string>
+    <string name="father">Отец</string>
+    <string name="mother">Мать</string>
+    <string name="next">Далее</string>
+    <string name="password">Пароль</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="sections">Разделы</string>
+    <string name="what_your_name">Как вас зовут?</string>
+    <string name="your_answer">Ваш ответ</string>
+    <string name="your_question">Ваш вопрос</string>
 </resources>

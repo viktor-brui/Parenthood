@@ -73,7 +73,7 @@ class FakeRepository() {
         return "-1"
     }
 
-    suspend fun getTest(): TestEntity {
+    suspend fun getTest(articleId: String): TestEntity {
         return testEntity
     }
 

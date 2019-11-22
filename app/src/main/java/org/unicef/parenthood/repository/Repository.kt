@@ -50,7 +50,10 @@ class Repository() {
         return "newtestid"
     }
 
-//    suspend fun getTest(): TestEntity {
+//    suspend fun getTest(articleId: String): TestEntity {
+//
+//        val query = firestore.collection(TESTS_COLLECTION).whereEqualTo("articleId", "CA")
+//
 //        val docRef = firestore.collection(TESTS_COLLECTION).document("SF")
 //        docRef.get()
 //            .addOnSuccessListener { document ->

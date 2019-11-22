@@ -76,15 +76,14 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
 
     implementation "com.squareup.moshi:moshi:${versions.moshi}"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
+
+    implementation "com.google.firebase:firebase-auth:${versions.firebase_auth}"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
-
-    implementation 'com.google.firebase:firebase-auth:19.1.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

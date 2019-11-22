@@ -6,54 +6,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.firebase.auth.FirebaseAuth
 import org.unicef.parenthood.ui.viewmodel.SignUpViewModel
 import org.unicef.parenthood.R
+import org.unicef.parenthood.databinding.FragmentSignUpBinding
 
 /**
  * For new users
  */
 class SignUpFragment : Fragment()  {
-    //todo
-    private lateinit var viewModel: SignUpViewModel
-    private lateinit var auth: FirebaseAuth
-    private val TAG = "SignUpFragment"
+    private val viewModel: SignUpViewModel by viewModels()
+    private lateinit var binding: FragmentSignUpBinding
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        auth = FirebaseAuth.getInstance()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_sign_up, container, false)
+        binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
-    fun onNextClicked(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "createUserWithEmail:success")
-                    val user = auth.currentUser
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                }
-            }
-    }
-
-    companion object {
-        fun newInstance() = SignUpFragment()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnRegister.setOnClickListener {
+            val email = binding.emailInputEditTextRegister.text.toString()
+            val password = binding.passwordInputEditTextRegister.text.toString()
+            viewModel.onRegisterClicked(email, password)
+        }
     }
 }

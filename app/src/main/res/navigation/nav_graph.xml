@@ -6,16 +6,43 @@
     app:startDestination="@id/welcomeFragment">
 
     <fragment
-        android:id="@+id/welcomeFragment"
-        android:name="org.unicef.parenthood.ui.fragment.SignUpFragment"
-        android:label="fragment_welcome"
-        tools:layout="@layout/fragment_sign_up" >
+        android:id="@+id/menuFragment"
+        android:name="org.unicef.parenthood.ui.fragment.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
         <action
-            android:id="@+id/action_welcomeFragment_to_signInFragment"
-            app:destination="@id/signInFragment" />
+            android:id="@+id/action_menuFragment_to_sectionsFragment"
+            app:destination="@id/sectionsFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="org.unicef.parenthood.ui.fragment.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
         <action
             android:id="@+id/action_welcomeFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_signInFragment"
+            app:destination="@+id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="org.unicef.parenthood.ui.fragment.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="org.unicef.parenthood.ui.fragment.SignInFragment"
+        android:label="SignInFragment">
+        <action
+            android:id="@+id/action_signInFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
@@ -25,56 +52,19 @@
         <action
             android:id="@+id/action_articleFragment_to_takeTestFragment"
             app:destination="@id/takeTestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sectionsFragment"
+        android:name="org.unicef.parenthood.ui.fragment.SectionsFragment"
+        android:label="fragment_sections"
+        tools:layout="@layout/fragment_sections" >
         <action
-            android:id="@+id/action_articleFragment_to_createTestFragment"
-            app:destination="@id/createTestFragment" />
+            android:id="@+id/action_sectionsFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
     </fragment>
     <fragment
         android:id="@+id/takeTestFragment"
         android:name="org.unicef.parenthood.ui.fragment.TakeTestFragment"
         android:label="fragment_take_test"
         tools:layout="@layout/fragment_take_test" />
-
-
-    <fragment
-        android:id="@+id/categoriesFragment"
-        android:name="org.unicef.parenthood.ui.fragment.CategoriesFragment"
-        android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" >
-        <action
-            android:id="@+id/action_categoriesFragment_to_feedFragment"
-            app:destination="@id/feedFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/signInFragment"
-        android:name="org.unicef.parenthood.ui.fragment.SignInFragment"
-        android:label="fragment_sign_in"
-        tools:layout="@layout/fragment_sign_in" >
-        <action
-            android:id="@+id/action_signInFragment_to_categoriesFragment"
-            app:destination="@id/categoriesFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/signUpFragment"
-        android:name="org.unicef.parenthood.ui.fragment.SignUpFragment"
-        android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
-        <action
-            android:id="@+id/action_signInFragment_to_categoriesFragment"
-            app:destination="@id/categoriesFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/feedFragment"
-        android:name="org.unicef.parenthood.ui.fragment.FeedFragment"
-        android:label="fragment_feed"
-        tools:layout="@layout/fragment_feed" >
-        <action
-            android:id="@+id/action_feedFragment_to_articleFragment"
-            app:destination="@id/articleFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/createTestFragment"
-        android:name="org.unicef.parenthood.ui.fragment.CreateTestFragment"
-        android:label="fragment_create_test"
-        tools:layout="@layout/fragment_create_test" />
 </navigation>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/marginLarge">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_question_one"
@@ -16,9 +17,10 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:textSize="@dimen/txtLittleSize"
         android:text="Введите текст первого вопроса"/>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_question_one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -26,9 +28,10 @@
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:textSize="@dimen/txtLittleSize"
             android:text="Введите ответ"/>
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_answer_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,9 +51,10 @@
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:textSize="@dimen/txtLittleSize"
             android:text="Введите текст второго вопроса"/>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_question_two"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,9 +63,10 @@
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:textSize="@dimen/txtLittleSize"
             android:text="Введите ответ"/>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_answer_two"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -80,9 +85,10 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:textSize="@dimen/txtLittleSize"
                 android:text="Введите текст третьего вопроса"/>
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_question_three"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,10 +97,12 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:textSize="@dimen/txtLittleSize"
                 android:text="Введите ответ"/>
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/et_answer_three"
+                android:hint="Введите ответ"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text|textMultiLine"/>

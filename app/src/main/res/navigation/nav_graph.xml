@@ -16,9 +16,9 @@
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="org.unicef.parenthood.ui.fragment.WelcomeFragment"
+        android:name="org.unicef.parenthood.ui.fragment.SignUpFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/fragment_sign_up" >
         <action
             android:id="@+id/action_welcomeFragment_to_childFormFragment"
             app:destination="@id/childFormFragment" />

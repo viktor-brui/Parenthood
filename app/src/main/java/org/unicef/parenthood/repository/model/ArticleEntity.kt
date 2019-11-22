@@ -1,9 +1,9 @@
 package org.unicef.parenthood.repository.model
 
 data class ArticleEntity(
-    val id: String,
+    var id: String,
     val title: String,
-    val test: TestEntity,
+    val test: TestEntity?,
     val content: String,
-    val categories: String
+    val categories: MutableList<String>
 )

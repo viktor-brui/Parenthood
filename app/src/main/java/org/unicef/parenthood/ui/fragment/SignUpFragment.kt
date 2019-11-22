@@ -11,6 +11,9 @@ import com.google.firebase.auth.FirebaseAuth
 import org.unicef.parenthood.ui.viewmodel.SignUpViewModel
 import org.unicef.parenthood.R
 
+/**
+ * For new users
+ */
 class SignUpFragment : Fragment()  {
     //todo
     private lateinit var viewModel: SignUpViewModel

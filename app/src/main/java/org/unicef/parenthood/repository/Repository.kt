@@ -44,30 +44,24 @@ class Repository() {
             .addOnFailureListener { exception ->
             }
         return recommendedArticles
-        }
+    }
 
     suspend fun addTest(): String{
         return "newtestid"
     }
 
-//    suspend fun getTest(articleId: String): TestEntity {
-//
-//        val query = firestore.collection(TESTS_COLLECTION).whereEqualTo("articleId", "CA")
-//
-//        val docRef = firestore.collection(TESTS_COLLECTION).document("SF")
-//        docRef.get()
-//            .addOnSuccessListener { document ->
-//                if (document != null) {
-//                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-//                } else {
-//                    Log.d(TAG, "No such document")
-//                }
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.d(TAG, "get failed with ", exception)
-//            }
-//        return
-//    }
+    suspend fun getTest(articleId: String): TestEntity? {
+
+        val query = firestore.collection(TESTS_COLLECTION).whereEqualTo("articleId", "CA")
+        val result =
+            query.get()
+                .addOnSuccessListener { documents -> documents.first()
+                }
+                .addOnFailureListener { exception ->
+                    //                Log.w(TAG, "Error getting documents: ", exception)
+                }.result
+        return result?.documents?.first()?.toObject(TestEntity::class.java)
+    }
 
     suspend fun getDiscoverable(): List<ArticleEntity> {
         urls.forEach{

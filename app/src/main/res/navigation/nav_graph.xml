@@ -6,31 +6,16 @@
     app:startDestination="@id/welcomeFragment">
 
     <fragment
-        android:id="@+id/menuFragment"
-        android:name="org.unicef.parenthood.ui.fragment.MenuFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" >
-        <action
-            android:id="@+id/action_menuFragment_to_sectionsFragment"
-            app:destination="@id/sectionsFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/welcomeFragment"
         android:name="org.unicef.parenthood.ui.fragment.SignUpFragment"
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_sign_up" >
         <action
-            android:id="@+id/action_welcomeFragment_to_childFormFragment"
-            app:destination="@id/childFormFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/childFormFragment"
-        android:name="org.unicef.parenthood.ui.fragment.ChildFormFragment"
-        android:label="fragment_child_form"
-        tools:layout="@layout/fragment_child_form" >
+            android:id="@+id/action_welcomeFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
         <action
-            android:id="@+id/action_childFormFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            android:id="@+id/action_welcomeFragment_to_placeholder"
+            app:destination="@id/placeholder" />
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
@@ -40,19 +25,50 @@
         <action
             android:id="@+id/action_articleFragment_to_takeTestFragment"
             app:destination="@id/takeTestFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/sectionsFragment"
-        android:name="org.unicef.parenthood.ui.fragment.SectionsFragment"
-        android:label="fragment_sections"
-        tools:layout="@layout/fragment_sections" >
         <action
-            android:id="@+id/action_sectionsFragment_to_articleFragment"
-            app:destination="@id/articleFragment" />
+            android:id="@+id/action_articleFragment_to_createTestFragment"
+            app:destination="@id/createTestFragment" />
     </fragment>
     <fragment
         android:id="@+id/takeTestFragment"
         android:name="org.unicef.parenthood.ui.fragment.TakeTestFragment"
         android:label="fragment_take_test"
         tools:layout="@layout/fragment_take_test" />
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="org.unicef.parenthood.ui.fragment.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="org.unicef.parenthood.ui.fragment.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="org.unicef.parenthood.ui.fragment.FeedFragment"
+        android:label="fragment_feed"
+        tools:layout="@layout/fragment_feed" >
+        <action
+            android:id="@+id/action_feedFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createTestFragment"
+        android:name="org.unicef.parenthood.ui.fragment.CreateTestFragment"
+        android:label="fragment_create_test"
+        tools:layout="@layout/fragment_create_test" />
+    <fragment android:id="@+id/placeholder" >
+        <action
+            android:id="@+id/action_placeholder_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+    </fragment>
 </navigation>

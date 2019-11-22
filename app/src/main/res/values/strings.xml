@@ -9,4 +9,7 @@
     <string name="i_plan_to_have_a_baby">I plan to have a baby</string>
     <string name="about_text">about_text</string>
     <string name="sections">Sections</string>
+    <string name="next">Next</string>
+    <string name="what_your_name">What\'s your name?</string>
+    <string name="email">Email</string>
 </resources>

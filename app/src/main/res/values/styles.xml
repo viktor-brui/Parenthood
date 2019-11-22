@@ -11,4 +11,48 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+<!--buttons-->
+<!--    greenButton-->
+    <style name="buttonStyleGreen" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">160dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/colorGreen</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="cornerRadius">30dp</item>
+        <item name="android:padding">18dp</item>
+        <item name="android:textSize">@dimen/txtNormalSize</item>
+    </style>
+    <!--    whiteButton-->
+    <style name="buttonStyleWhite" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">160dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="cornerRadius">30dp</item>
+        <item name="android:padding">18dp</item>
+        <item name="android:textSize">@dimen/txtNormalSize</item>
+    </style>
+<!-- whiteButtonShape-->
+    <style name="buttonBlueShape" parent="Widget.MaterialComponents.Button.OutlinedButton">>
+        <item name="shapeAppearance">@style/shapeButton</item>
+        <item name="cornerRadius">30dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="strokeColor">@color/colorBlueLight</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="android:padding">18dp</item>
+        <item name="android:textSize">@dimen/txtNormalSize</item>
+    </style>
+    <style name="shapeButton">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+    </style>
+
+
+
+
+
+
+
 </resources>

@@ -61,6 +61,12 @@ dependencies {
 
     implementation "com.google.android.material:material:${versions.material_design}"
 
+    implementation "androidx.lifecycle:lifecycle-extensions:${versions.androidx.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.androidx.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${versions.androidx.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:${versions.androidx.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-common-java8:${versions.androidx.lifecycle}"
+
     implementation "androidx.navigation:navigation-fragment-ktx:${versions.androidx.navigation}"
     implementation "androidx.navigation:navigation-ui-ktx:${versions.androidx.navigation}"
 

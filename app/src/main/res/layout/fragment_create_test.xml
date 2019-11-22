@@ -8,6 +8,5 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="282dp"
-        android:layout_height="wrap_content"
-        android:text="@string/question 1" />
+        android:layout_height="wrap_content" />
 </FrameLayout>

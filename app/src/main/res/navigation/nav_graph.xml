@@ -14,8 +14,8 @@
             android:id="@+id/action_welcomeFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
         <action
-            android:id="@+id/action_welcomeFragment_to_placeholder"
-            app:destination="@id/placeholder" />
+            android:id="@+id/action_welcomeFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
@@ -34,6 +34,8 @@
         android:name="org.unicef.parenthood.ui.fragment.TakeTestFragment"
         android:label="fragment_take_test"
         tools:layout="@layout/fragment_take_test" />
+
+
     <fragment
         android:id="@+id/categoriesFragment"
         android:name="org.unicef.parenthood.ui.fragment.CategoriesFragment"
@@ -53,6 +55,15 @@
             app:destination="@id/categoriesFragment" />
     </fragment>
     <fragment
+        android:id="@+id/signUpFragment"
+        android:name="org.unicef.parenthood.ui.fragment.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signInFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/feedFragment"
         android:name="org.unicef.parenthood.ui.fragment.FeedFragment"
         android:label="fragment_feed"
@@ -66,9 +77,4 @@
         android:name="org.unicef.parenthood.ui.fragment.CreateTestFragment"
         android:label="fragment_create_test"
         tools:layout="@layout/fragment_create_test" />
-    <fragment android:id="@+id/placeholder" >
-        <action
-            android:id="@+id/action_placeholder_to_categoriesFragment"
-            app:destination="@id/categoriesFragment" />
-    </fragment>
 </navigation>

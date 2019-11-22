@@ -1,8 +1,8 @@
 package org.unicef.parenthood.repository.model
 
-class TestQuestion(
-    val id: Int,
-    val text: String,
+data class TestQuestion(
+    val id: String,
+    val questionText: String,
     val correctAnswer: String
 ) {
 

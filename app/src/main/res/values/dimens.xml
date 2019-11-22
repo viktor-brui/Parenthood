@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--    textSize-->
+    <dimen name="txtLittleSize">14sp</dimen>
+    <dimen name="txtNormalSize">18sp</dimen>
+    <dimen name="txtLargeSize">28sp</dimen>
+
+<!--    marginSize-->
+    <dimen name="marginLittle">8dp</dimen>
+    <dimen name="marginNormal">16dp</dimen>
+    <dimen name="marginLarge">24dp</dimen>
+
+</resources>

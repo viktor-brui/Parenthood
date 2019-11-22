@@ -61,5 +61,16 @@ dependencies {
 
     implementation "com.google.android.material:material:${versions.material_design}"
 
+    implementation "androidx.navigation:navigation-fragment-ktx:${versions.androidx.navigation}"
+    implementation "androidx.navigation:navigation-ui-ktx:${versions.androidx.navigation}"
+
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+    implementation "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
+
+    implementation "com.squareup.moshi:moshi:${versions.moshi}"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
 }

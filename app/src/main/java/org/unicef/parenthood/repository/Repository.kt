@@ -29,33 +29,20 @@ class Repository() {
         "https://www.janetlansbury.com/feed/")
 
     val firestore = Firebase.firestore
-    var articles = firestore.collection(ARTICLES_COLLECTION).get()
-
-
-
-
-
 
     fun getRecommended(): List<ArticleEntity> {
-
-//        try {
-//            val querySnapshot = usersRef.document("john").get().await()
-//            val johnUser = querySnapshot.toObject(ArticleEntity::class.java)
-//
-//            val friendSnapshot = friendsRef.get().await()
-//            val friends = friendSnapshot.toObjects(Friend::class.java)
-//            showProfileAndFriends(johnUser, friends)
-//        } catch (e: FirebaseFirestoreException) {
-//            displayError()
-//        }
-
-
-
-
-
-
+        firestore.collection(ARTICLES_COLLECTION)
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    val articleEntity = document.toObject(ArticleEntity::class.java)
+                    recommendedArticles.add(articleEntity)
+                }
+            }
+            .addOnFailureListener { exception ->
+            }
         return recommendedArticles
-    }
+        }
 
     suspend fun getDiscoverable(): List<ArticleEntity> {
         urls.forEach{

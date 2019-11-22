@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "721295756657",
+    "firebase_url": "https://parenthood-25422.firebaseio.com",
+    "project_id": "parenthood-25422",
+    "storage_bucket": "parenthood-25422.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721295756657:android:b61aaffe83528ce55abad0",
+        "android_client_info": {
+          "package_name": "org.unicef.parenthood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721295756657-nr1ublhqkh9o6l8qg72s8sm3v0niia81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj8aPyBjek5zeMBffz3LZIhgJxWKy_XIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "721295756657-nr1ublhqkh9o6l8qg72s8sm3v0niia81.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

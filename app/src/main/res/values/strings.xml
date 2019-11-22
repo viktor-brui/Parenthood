@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Parenthood</string>
+    <string name="app_name">Unisef</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome">Welcome</string>
+    <string name="please_answer_some_questions">Please answer some questions</string>
+    <string name="i_have_a_baby">I have a baby</string>
+    <string name="i_plan_to_have_a_baby">I plan to have a baby</string>
+    <string name="about_text">about_text</string>
+    <string name="sections">Sections</string>
 </resources>

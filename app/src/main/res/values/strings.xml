@@ -17,4 +17,7 @@
     <string name="father">Father</string>
     <string name="register">Register</string>
     <string name="create_new_test_caption">Create a new Test for the Article</string>
+    <string name="next">Next</string>
+    <string name="what_your_name">What\'s your name?</string>
+    <string name="email">Email</string>
 </resources>

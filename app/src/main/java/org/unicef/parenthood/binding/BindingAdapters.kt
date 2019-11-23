@@ -1,7 +1,3 @@
-/*
- * Copyright 2018 LWO LLC
- */
-
 package org.unicef.parenthood.binding
 
 import android.view.View

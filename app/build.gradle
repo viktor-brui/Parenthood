@@ -64,6 +64,8 @@ dependencies {
 
     implementation "io.coil-kt:coil:${versions.coil}"
 
+    implementation "com.prof.rssparser:rssparser:${versions.rss_parser}"
+
     implementation "androidx.lifecycle:lifecycle-extensions:${versions.androidx.lifecycle}"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.androidx.lifecycle}"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:${versions.androidx.lifecycle}"

@@ -29,6 +29,7 @@ buildscript {
             'okhttp'                  : '4.2.0',
             'permissions_dispatcher'  : '4.5.0',
             'retrofit'                : '2.6.1',
+            'rss_parser'              : '2.0.4',
             'timber'                  : '4.7.1',
             'vvalidator'              : '0.5.1',
             'junit'                   : '4.12'

@@ -70,10 +70,9 @@ class Repository {
 
         val updatedArticle = firestore
             .collection(articlesCollection)
-            .whereEqualTo("id", articleId)
             .get()
             .await()
-            .firstOrNull()
+            .find { article -> article.id == articleId }
             ?.data
         if (updatedArticle != null) {
             updatedArticle["testId"] = addedTest.id

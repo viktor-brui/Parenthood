@@ -39,6 +39,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/your_question"
+                        android:inputType="text|textMultiLine"
                         app:boxCornerRadiusBottomEnd="30dp"
                         app:boxCornerRadiusBottomStart="30dp"
                         app:boxCornerRadiusTopEnd="30dp"
@@ -70,6 +71,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/your_answer"
+                        android:inputType="text|textMultiLine"
                         app:boxCornerRadiusBottomEnd="30dp"
                         app:boxCornerRadiusBottomStart="30dp"
                         app:boxCornerRadiusTopEnd="30dp"
@@ -120,6 +122,7 @@
                         app:boxCornerRadiusTopStart="30dp"
                         app:boxStrokeColor="@color/colorBlueLight"
                         app:boxStrokeWidth="3dp"
+                        android:inputType="text|textMultiLine"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
 
@@ -150,6 +153,7 @@
                         app:boxCornerRadiusTopStart="30dp"
                         app:boxStrokeColor="@color/colorBlueLight"
                         app:boxStrokeWidth="3dp"
+                        android:inputType="text|textMultiLine"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
 
@@ -192,6 +196,7 @@
                         app:boxCornerRadiusTopStart="30dp"
                         app:boxStrokeColor="@color/colorBlueLight"
                         app:boxStrokeWidth="3dp"
+                        android:inputType="text|textMultiLine"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
 
@@ -221,6 +226,7 @@
                         app:boxCornerRadiusTopStart="30dp"
                         app:boxStrokeColor="@color/colorBlueLight"
                         app:boxStrokeWidth="3dp"
+                        android:inputType="text|textMultiLine"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
 

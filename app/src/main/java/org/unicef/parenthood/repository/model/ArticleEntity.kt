@@ -1,9 +1,10 @@
 package org.unicef.parenthood.repository.model
 
-import com.google.firebase.Timestamp
+import android.os.Parcelable
 import com.google.firebase.firestore.PropertyName
-import com.google.firebase.firestore.ServerTimestamp
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class ArticleEntity(
     var id: String? = "",
     val author: String? = "",
@@ -15,4 +16,4 @@ data class ArticleEntity(
     val link:String? = "",
     @PropertyName("mainimage")
     val mainImage: String? = ""
-)
+): Parcelable

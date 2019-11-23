@@ -6,16 +6,6 @@
     app:startDestination="@id/welcomeFragment">
 
     <fragment
-        android:id="@+id/menuFragment"
-        android:name="org.unicef.parenthood.ui.fragment.MenuFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu">
-        <action
-            android:id="@+id/action_menuFragment_to_sectionsFragment"
-            app:destination="@id/sectionsFragment" />
-
-    </fragment>
-    <fragment
         android:id="@+id/welcomeFragment"
         android:name="org.unicef.parenthood.ui.fragment.WelcomeFragment"
         android:label="fragment_welcome"
@@ -33,9 +23,9 @@
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up">
         <action
-            android:id="@+id/action_signUpFragment_to_menuFragment"
-            app:destination="@id/menuFragment"
-            app:popUpTo="@id/nav_graph"
+            android:id="@+id/action_signUpFragment_to_articlesContainerFragment"
+            app:destination="@id/articlesContainerFragment"
+            app:popUpTo="@+id/nav_graph"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -44,9 +34,9 @@
         android:label="SignInFragment"
         tools:layout="@layout/fragment_sign_in">
         <action
-            android:id="@+id/action_signInFragment_to_menuFragment"
-            app:destination="@id/menuFragment"
-            app:popUpTo="@id/nav_graph"
+            android:id="@+id/action_signInFragment_to_articlesContainerFragment"
+            app:destination="@id/articlesContainerFragment"
+            app:popUpTo="@+id/nav_graph"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -57,15 +47,12 @@
         <action
             android:id="@+id/action_articleFragment_to_takeTestFragment"
             app:destination="@id/takeTestFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/sectionsFragment"
-        android:name="org.unicef.parenthood.ui.fragment.SectionsFragment"
-        android:label="fragment_sections"
-        tools:layout="@layout/fragment_sections">
-        <action
-            android:id="@+id/action_sectionsFragment_to_articleFragment"
-            app:destination="@id/articleFragment" />
+        <argument
+            android:name="article"
+            app:argType="org.unicef.parenthood.repository.model.ArticleEntity" />
+        <argument
+            android:name="upload"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/takeTestFragment"
@@ -81,11 +68,10 @@
         android:id="@+id/articlesContainerFragment"
         android:name="org.unicef.parenthood.ui.fragment.ArticlesContainerFragment"
         android:label="fragment_articles_container_test"
-        tools:layout="@layout/fragment_articles_container" />
-    <fragment
-        android:id="@+id/onboardingContainerFragment"
-        android:name="org.unicef.parenthood.ui.fragment.OnboardingContainerFragment"
-        android:label="fragment_articles_container_test"
-        tools:layout="@layout/fragment_onboarding_main" />
+        tools:layout="@layout/fragment_articles_container" >
+        <action
+            android:id="@+id/action_articlesContainerFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
 
 </navigation>

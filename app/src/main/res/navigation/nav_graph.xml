@@ -82,5 +82,10 @@
         android:name="org.unicef.parenthood.ui.fragment.ArticlesContainerFragment"
         android:label="fragment_articles_container_test"
         tools:layout="@layout/fragment_articles_container" />
+    <fragment
+        android:id="@+id/onboardingContainerFragment"
+        android:name="org.unicef.parenthood.ui.fragment.OnboardingContainerFragment"
+        android:label="fragment_articles_container_test"
+        tools:layout="@layout/fragment_onboarding_main" />
 
 </navigation>

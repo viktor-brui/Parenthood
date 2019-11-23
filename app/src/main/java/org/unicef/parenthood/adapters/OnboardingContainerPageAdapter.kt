@@ -4,24 +4,36 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_onboarding_one.view.*
 import org.unicef.parenthood.R
 
 class OnboardingContainerPageAdapter :
-    RecyclerView.Adapter<OnboardingContainerPageAdapter.EventViewHolder>() {
-    val eventList = listOf("0", "1", "2")
+    RecyclerView.Adapter<OnboardingContainerPageAdapter.PagerVH>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        EventViewHolder(
+    private val elements = listOf(
+        "Hello World" to R.drawable.s1,
+        "Lets go" to R.drawable.s2,
+        "Cool" to R.drawable.s3
+    )
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerVH =
+        PagerVH(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.fragment_onboarding_main,
+                R.layout.fragment_onboarding_one,
                 parent,
                 false
             )
         )
 
-    override fun getItemCount() = eventList.count()
-    override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
+    override fun getItemCount(): Int = elements.size // +
+
+    override fun onBindViewHolder(holder: PagerVH, position: Int) {
+        val (text, image) = elements[position]
+        holder.itemView.run {
+            tv_caption.text = text
+            img_screenshot.setImageResource(image)
+        }
     }
 
-    class EventViewHolder(val view: View) : RecyclerView.ViewHolder(view)
+    class PagerVH(itemView: View) : RecyclerView.ViewHolder(itemView)
 }

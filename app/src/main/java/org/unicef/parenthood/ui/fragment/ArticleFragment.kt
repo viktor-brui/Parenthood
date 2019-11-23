@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import org.unicef.parenthood.R
 
 /**
- * A simple [Fragment] subclass.
+ * Shows full article content
  */
 class ArticleFragment : Fragment() {
 //todo

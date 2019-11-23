@@ -1,5 +1,7 @@
 package org.unicef.parenthood.repository
 
+import android.util.Log
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.prof.rssparser.Article
@@ -17,7 +19,7 @@ class Repository() {
     private val ARTICLES_COLLECTION  = "articles"
     private val TESTS_COLLECTION  = "tests"
 
-    private val recommendedArticles: MutableList<ArticleEntity> = mutableListOf()
+    private val recommendedArticles: MutableList<ArticleEntity?> = mutableListOf()
     private val discoveryArticles: MutableList<ArticleEntity> = mutableListOf()
 
     private val urls = listOf("https://www.psychologytoday.com/intl/blog/singletons/feed",
@@ -25,35 +27,41 @@ class Repository() {
 
     val firestore = Firebase.firestore
 
-    fun getRecommended(): List<ArticleEntity> {
-        firestore.collection(ARTICLES_COLLECTION)
+    fun getRecommended(): List<ArticleEntity?> {
+        val docList = firestore.collection(ARTICLES_COLLECTION)
             .get()
-            .addOnSuccessListener { result ->
+
+            docList.addOnSuccessListener { result ->
+
+                Log.d("REPO", result.first().toString())
                 for (document in result) {
                     val articleEntity = document.toObject(ArticleEntity::class.java)
+                    val id = articleEntity.id
                     recommendedArticles.add(articleEntity)
                 }
             }
-            .addOnFailureListener { exception ->
+            .addOnFailureListener {
+                val id = it.toString()
             }
         return recommendedArticles
+
     }
 
     suspend fun addArticle(articleEntity: ArticleEntity){
 
-        val newTest = hashMapOf(
+        val newArticle = hashMapOf(
             "author" to articleEntity.author,
             "categories" to articleEntity.categories,
             "content" to articleEntity.content,
             "description" to articleEntity.description,
             "link" to articleEntity.link,
             "mainImage" to articleEntity.mainImage,
-            "publicationDate" to articleEntity.publicationDate,
             "title" to articleEntity.title
         )
 
-        firestore.collection(TESTS_COLLECTION).document() //???
-            .set(newTest)
+        val snapshot = firestore.collection(TESTS_COLLECTION).document()
+        snapshot
+            .set(newArticle)
             .addOnSuccessListener {
                 //                todo
             }
@@ -105,10 +113,11 @@ class Repository() {
 
     private suspend fun fetchFeed(url: String): List<ArticleEntity> {
         return withContext(Dispatchers.IO){
+
             val parser = Parser()
             val list: List<Article> = parser.getArticles(url)
             list.take(MAX_RANGE).map { article ->  ArticleEntity(
-                id = "",
+                id = article.guid,
                 author = article.author ?: "",
                 title = article.title ?: "",
                 test = null,
@@ -116,12 +125,8 @@ class Repository() {
                 categories = article.categories,
                 description = article.description?: "",
                 link = article.link?: "",
-                mainImage = article.image?: "",
-                publicationDate = article.pubDate ?: ""
+                mainImage = article.image?: ""
             )}
         }
     }
-
-
-
 }

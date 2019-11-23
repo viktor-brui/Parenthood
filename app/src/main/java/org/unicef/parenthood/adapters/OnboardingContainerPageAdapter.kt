@@ -11,9 +11,9 @@ class OnboardingContainerPageAdapter :
     RecyclerView.Adapter<OnboardingContainerPageAdapter.PagerVH>() {
 
     private val elements = listOf(
-        "Hello World" to R.drawable.s11,
-        "Lets go" to R.drawable.s12,
-        "Cool" to R.drawable.s13
+        "Hello World" to R.drawable.s1,
+        "Lets go" to R.drawable.s2,
+        "Cool" to R.drawable.s3
     )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerVH =

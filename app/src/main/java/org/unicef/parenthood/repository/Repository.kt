@@ -36,7 +36,8 @@ class Repository() {
                 Log.d("REPO", result.first().toString())
                 for (document in result) {
                     val articleEntity = document.toObject(ArticleEntity::class.java)
-                    val id = articleEntity.id
+                    articleEntity.id = document.id
+                    Log.d("REPOI", articleEntity.toString())
                     recommendedArticles.add(articleEntity)
                 }
             }

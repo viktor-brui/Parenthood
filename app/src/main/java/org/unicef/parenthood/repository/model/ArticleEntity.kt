@@ -5,7 +5,7 @@ import com.google.firebase.firestore.PropertyName
 import com.google.firebase.firestore.ServerTimestamp
 
 data class ArticleEntity(
-    val id: String? = "",
+    var id: String? = "",
     val author: String? = "",
     val title: String? = "",
     val test: TestEntity? = TestEntity(),
@@ -15,7 +15,4 @@ data class ArticleEntity(
     val link:String? = "",
     @PropertyName("mainimage")
     val mainImage: String? = ""
-//    @PropertyName("publicationdate")
-//    @ServerTimestamp
-////    val publicationDate: Timestamp? = null
 )

@@ -9,9 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.navGraphViewModels
 import coil.api.load
+import org.unicef.parenthood.R
 import org.unicef.parenthood.databinding.FragmentArticleBinding
 import org.unicef.parenthood.ui.viewmodel.ArticleViewModel
+import org.unicef.parenthood.ui.viewmodel.ArticlesContainerViewModel
+import org.unicef.parenthood.util.observeEvent
 
 /**
  * Shows full article content
@@ -20,6 +24,7 @@ class ArticleFragment : Fragment() {
 
     private val args: ArticleFragmentArgs by navArgs()
 
+    private val articlesContainerViewModel: ArticlesContainerViewModel by navGraphViewModels(R.id.articles_nav_graph)
     private val viewModel: ArticleViewModel by viewModels()
 
     private lateinit var binding: FragmentArticleBinding
@@ -62,6 +67,10 @@ class ArticleFragment : Fragment() {
 
         if (args.upload) {
             viewModel.uploadArticle(args.article)
+        }
+
+        viewModel.onArticleUploaded.observeEvent(viewLifecycleOwner) {
+            articlesContainerViewModel.loadArticles()
         }
     }
 }

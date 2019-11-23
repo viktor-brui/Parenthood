@@ -14,6 +14,10 @@ class ArticlesContainerViewModel : ViewModel() {
     private val repository = Repository()
 
     init {
+        loadArticles()
+    }
+
+    fun loadArticles() {
         getEditorsPick()
         getAllArticles()
     }

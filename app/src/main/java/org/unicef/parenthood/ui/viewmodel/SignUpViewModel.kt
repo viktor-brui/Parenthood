@@ -12,9 +12,9 @@ class SignUpViewModel : ViewModel() {
 
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
-    private val _isSuccessfullSignUp = MutableLiveData<Event<Boolean>>()
+    private val _isSuccessfulSignUp = MutableLiveData<Event<Boolean>>()
     val isSuccessfulSignUp: LiveData<Event<Boolean>>
-        get() = _isSuccessfullSignUp
+        get() = _isSuccessfulSignUp
 
     fun onRegisterClicked(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
@@ -22,11 +22,11 @@ class SignUpViewModel : ViewModel() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
-                    _isSuccessfullSignUp.value = Event(true)
+                    _isSuccessfulSignUp.value = Event(true)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    _isSuccessfullSignUp.value = Event(false)
+                    _isSuccessfulSignUp.value = Event(false)
                 }
             }
     }

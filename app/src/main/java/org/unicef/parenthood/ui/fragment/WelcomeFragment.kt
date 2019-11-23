@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import org.unicef.parenthood.R
 import org.unicef.parenthood.databinding.FragmentWelcomeBinding
 
@@ -24,10 +25,14 @@ class WelcomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSignIn.setOnClickListener {
-            view.findNavController().navigate(R.id.action_welcomeFragment_to_signInFragment)
+            val direction = WelcomeFragmentDirections
+                .actionWelcomeFragmentToSignInFragment()
+            findNavController().navigate(direction)
         }
         binding.btnSignUp.setOnClickListener {
-            view.findNavController().navigate(R.id.action_welcomeFragment_to_signUpFragment)
+            val direction = WelcomeFragmentDirections
+                .actionWelcomeFragmentToSignUpFragment()
+            findNavController().navigate(direction)
         }
     }
 }

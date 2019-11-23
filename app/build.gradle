@@ -60,6 +60,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:${versions.androidx.recyclerview}"
 
     implementation "com.google.android.material:material:${versions.material_design}"
+    implementation "androidx.viewpager2:viewpager2:${versions.androidx.viewpager2}"
 
     implementation "androidx.lifecycle:lifecycle-extensions:${versions.androidx.lifecycle}"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.androidx.lifecycle}"
@@ -76,26 +77,17 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
 
     implementation "com.squareup.moshi:moshi:${versions.moshi}"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
+
+    implementation "com.google.firebase:firebase-common-ktx:${versions.firebase_common_ktx}"
+    implementation "com.google.firebase:firebase-auth:${versions.firebase_auth}"
+    implementation "com.google.firebase:firebase-firestore-ktx:${versions.firebase_firestore_ktx}"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
-
-    implementation 'com.google.firebase:firebase-auth:19.1.0'
-    implementation 'com.google.firebase:firebase-firestore:21.3.0'
-
-    implementation 'com.prof.rssparser:rssparser:2.0.4'
-    implementation 'com.google.firebase:firebase-common-ktx:19.3.0'
-    implementation 'com.google.firebase:firebase-firestore-ktx:21.3.0'
-
-
-    kapt 'androidx.room:room-compiler:2.2.2'
-    implementation 'androidx.room:room-ktx:2.2.2'
-    implementation 'androidx.room:room-common:2.2.2'
-    implementation 'androidx.room:room-runtime:2.2.2'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${versions.coroutines_play_services}"
 }
 
 apply plugin: 'com.google.gms.google-services'

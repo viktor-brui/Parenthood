@@ -72,4 +72,15 @@
         android:name="org.unicef.parenthood.ui.fragment.TakeTestFragment"
         android:label="fragment_take_test"
         tools:layout="@layout/fragment_take_test" />
+    <fragment
+        android:id="@+id/createTestFragment"
+        android:name="org.unicef.parenthood.ui.fragment.CreateTestFragment"
+        android:label="fragment_create_test"
+        tools:layout="@layout/fragment_create_test" />
+    <fragment
+        android:id="@+id/articlesContainerFragment"
+        android:name="org.unicef.parenthood.ui.fragment.ArticlesContainerFragment"
+        android:label="fragment_articles_container_test"
+        tools:layout="@layout/fragment_articles_container" />
+
 </navigation>

@@ -31,7 +31,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_sign_up"
             android:layout_width="120dp"
-            android:layout_height="55dp"
+            style="@style/buttonStyleGreen"
             app:cornerRadius="20dp"
             android:layout_marginBottom="60dp"
             android:text="@string/sign_up"
@@ -44,7 +44,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_sign_in"
             android:layout_width="120dp"
-            android:layout_height="55dp"
+            style="@style/buttonStyleGreen"
             app:cornerRadius="20dp"
             android:layout_marginBottom="60dp"
             android:text="@string/sign_in"

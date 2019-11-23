@@ -78,8 +78,8 @@ class Repository {
             updatedArticle["testId"] = addedTest.id
             firestore
                 .collection(articlesCollection)
-                .document()
-                .set(updatedArticle)
+                .document(articleId)
+                .update(updatedArticle)
                 .await()
         }
     }

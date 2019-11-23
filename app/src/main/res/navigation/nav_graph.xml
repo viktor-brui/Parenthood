@@ -2,14 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph.xml"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/welcomeFragment">
 
     <fragment
         android:id="@+id/menuFragment"
         android:name="org.unicef.parenthood.ui.fragment.MenuFragment"
         android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" >
+        tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_menuFragment_to_sectionsFragment"
             app:destination="@id/sectionsFragment" />
@@ -19,7 +19,7 @@
         android:id="@+id/welcomeFragment"
         android:name="org.unicef.parenthood.ui.fragment.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
@@ -31,24 +31,29 @@
         android:id="@+id/signUpFragment"
         android:name="org.unicef.parenthood.ui.fragment.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
+        tools:layout="@layout/fragment_sign_up">
         <action
             android:id="@+id/action_signUpFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
         android:name="org.unicef.parenthood.ui.fragment.SignInFragment"
-        android:label="SignInFragment">
+        android:label="SignInFragment"
+        tools:layout="@layout/fragment_sign_in">
         <action
             android:id="@+id/action_signInFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
         android:name="org.unicef.parenthood.ui.fragment.ArticleFragment"
         android:label="fragment_article"
-        tools:layout="@layout/fragment_article" >
+        tools:layout="@layout/fragment_article">
         <action
             android:id="@+id/action_articleFragment_to_takeTestFragment"
             app:destination="@id/takeTestFragment" />
@@ -57,7 +62,7 @@
         android:id="@+id/sectionsFragment"
         android:name="org.unicef.parenthood.ui.fragment.SectionsFragment"
         android:label="fragment_sections"
-        tools:layout="@layout/fragment_sections" >
+        tools:layout="@layout/fragment_sections">
         <action
             android:id="@+id/action_sectionsFragment_to_articleFragment"
             app:destination="@id/articleFragment" />

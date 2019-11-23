@@ -6,8 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.ArticleFragment">
-
-<ImageView
+<ScrollView
+    android:id="@+id/sv_article"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingConstraints">
+    <ImageView
     android:id="@+id/img_main"
     android:layout_width="match_parent"
     android:layout_height="250dp"
@@ -79,5 +83,5 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_description"
         tools:layout_editor_absoluteX="57dp" />
 
-
+</ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

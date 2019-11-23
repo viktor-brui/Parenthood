@@ -53,7 +53,6 @@ class Repository {
 
     suspend fun addTest(testEntity: TestEntity, articleId: String) {
         val newTest = mapOf(
-            "testId" to testEntity.id,
             "questions" to testEntity.questions,
             "authorName" to testEntity.authorName
         )
@@ -63,6 +62,12 @@ class Repository {
             .set(newTest)
             .await()
 
+        val addedTest = firestore
+            .collection(testsCollection)
+            .get()
+            .await()
+            .last()
+
         val updatedArticle = firestore
             .collection(articlesCollection)
             .whereEqualTo("id", articleId)
@@ -71,7 +76,7 @@ class Repository {
             .firstOrNull()
             ?.data
         if (updatedArticle != null) {
-            updatedArticle["testId"] = testEntity.id
+            updatedArticle["testId"] = addedTest.id
             firestore
                 .collection(articlesCollection)
                 .document()
@@ -83,10 +88,9 @@ class Repository {
     suspend fun getTest(testId: String): TestEntity? {
         return firestore
             .collection(testsCollection)
-            .whereEqualTo("testId", testId)
             .get()
             .await()
-            .firstOrNull()
+            .find { test -> test.id == testId }
             ?.toObject()
     }
 

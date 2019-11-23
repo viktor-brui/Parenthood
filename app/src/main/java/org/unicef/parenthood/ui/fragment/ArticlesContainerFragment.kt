@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_articles_container.*
+import org.unicef.parenthood.R
 import org.unicef.parenthood.adapters.ArticlesContainerPageAdapter
 import org.unicef.parenthood.databinding.FragmentArticlesContainerBinding
 import org.unicef.parenthood.ui.viewmodel.ArticlesContainerViewModel
@@ -34,9 +35,9 @@ class ArticlesContainerFragment : Fragment() {
         TabLayoutMediator(binding.tabview, viewpager,
             TabLayoutMediator.TabConfigurationStrategy { tab, position ->
                 tab.text = when (position) {
-                    0 -> "Editor's Pick"
-                    1 -> "All"
-                    else -> "All"
+                    0 -> getString(R.string.tab_articles_main)
+                    1 -> getString(R.string.tab_articles_other)
+                    else -> getString(R.string.tab_articles_other)
                 }
             }).attach()
     }

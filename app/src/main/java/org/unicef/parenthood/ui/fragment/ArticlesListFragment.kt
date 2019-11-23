@@ -9,6 +9,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import org.unicef.parenthood.adapter.ArticlesAdapter
 import org.unicef.parenthood.databinding.FragmentArticlesListBinding
@@ -34,8 +35,12 @@ class ArticlesListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ArticlesAdapter { position ->
-            // TODO(): navigation
+        val adapter = ArticlesAdapter { article ->
+            val direction =  ArticlesContainerFragmentDirections.actionArticlesContainerFragmentToArticleFragment(
+                article = article,
+                upload = tabPosition != 0
+            )
+            findNavController().navigate(direction)
         }
         binding.articlesList.adapter = adapter
         val decoration = DividerItemDecoration(requireContext(), LinearLayout.VERTICAL)

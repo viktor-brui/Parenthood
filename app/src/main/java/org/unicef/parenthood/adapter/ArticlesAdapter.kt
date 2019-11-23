@@ -8,7 +8,7 @@ import org.unicef.parenthood.databinding.ArticleRowBinding
 import org.unicef.parenthood.repository.model.ArticleEntity
 
 class ArticlesAdapter(
-    private val clickListener: (position: Int) -> Unit
+    private val clickListener: (article: ArticleEntity) -> Unit
 ) : RecyclerView.Adapter<ArticlesAdapter.ViewHolder>() {
     private val articles: MutableList<ArticleEntity> = mutableListOf()
 
@@ -36,11 +36,17 @@ class ArticlesAdapter(
 
     class ViewHolder(
         private val binding: ArticleRowBinding,
-        listener: (position: Int) -> Unit
+        listener: (article: ArticleEntity) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
+        init {
+            binding.root.setOnClickListener {
+                listener(requireNotNull(binding.article))
+            }
+        }
+
         fun bind(article: ArticleEntity) {
-            binding.articleTitle.text = article.title
+            binding.article = article
             binding.categories.text = article.categories.joinToString(", ")
             binding.articleImage.load(article.mainImage)
             binding.executePendingBindings()

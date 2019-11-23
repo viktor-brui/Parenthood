@@ -39,6 +39,30 @@ class Repository() {
         return recommendedArticles
     }
 
+    suspend fun addArticle(articleEntity: ArticleEntity){
+
+        val newTest = hashMapOf(
+            "author" to articleEntity.author,
+            "categories" to articleEntity.categories,
+            "content" to articleEntity.content,
+            "description" to articleEntity.description,
+            "link" to articleEntity.link,
+            "mainImage" to articleEntity.mainImage,
+            "publicationDate" to articleEntity.publicationDate,
+            "title" to articleEntity.title
+        )
+
+        firestore.collection(TESTS_COLLECTION).document() //???
+            .set(newTest)
+            .addOnSuccessListener {
+                //                todo
+            }
+            .addOnFailureListener {
+
+                //                   todo
+            }
+    }
+
     suspend fun addTest(testEntity: TestEntity){
 
         val newTest = hashMapOf(
@@ -50,11 +74,11 @@ class Repository() {
         firestore.collection(TESTS_COLLECTION).document() //???
             .set(newTest)
             .addOnSuccessListener {
-//                todo
+                //                todo
             }
             .addOnFailureListener {
 
-//                   todo
+                //                   todo
             }
     }
 
@@ -85,10 +109,15 @@ class Repository() {
             val list: List<Article> = parser.getArticles(url)
             list.take(MAX_RANGE).map { article ->  ArticleEntity(
                 id = "",
+                author = article.author ?: "",
                 title = article.title ?: "",
                 test = null,
                 content = article.content ?: "",
-                categories = article.categories
+                categories = article.categories,
+                description = article.description?: "",
+                link = article.link?: "",
+                mainImage = article.image?: "",
+                publicationDate = article.pubDate ?: ""
             )}
         }
     }

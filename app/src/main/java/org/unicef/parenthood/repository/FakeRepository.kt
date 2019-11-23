@@ -15,6 +15,7 @@ class FakeRepository() {
 
     private val entry0 = ArticleEntity(
         id = "oXSzsjXzzJbM0Nehz6OA",
+        author = "Author",
         title = "Title",
         test = TestEntity("oXSzsjXzzJbM0Nehz6rr",
             "oXSzsjXzzJbM0Nehz6OA",
@@ -24,12 +25,14 @@ class FakeRepository() {
                 TestQuestion(0, "Question2", "Answer2")),
             authorName = "TestAuthor"
         ),
-        content = "Most of the advice I share is focused on infants, toddlers and preschoolers, but since my own children are now well past those years (my oldest just turned 21!), it occurred to me that I should be sharing more often from my “long view” perspective. Like most parents, I’ve had my worries. For instance, despite",
-        categories = listOf("Safety", "Food"))
+        content = "Most of the advice I share is focused on infants, toddlers and preschoolers, but since my own children are now well past those years (my oldest just turned 21!), it occurred to me that I should be sharing more often from my “long view” perspective. Like most parents, I’ve had my worries. For instance, despite"
+        , categories = listOf("Safety", "Food"), description = "description"
+    )
 
 
     private val entry1 = ArticleEntity(
         id = "oXSzsjXzzJbM0Nehz6OB",
+        author = "Author",
         title = "Title",
         test = TestEntity("oXSzsjXzzJbM0Nehz6rr",
             "oXSzsjXzzJbM0Nehz6OB",
@@ -39,11 +42,13 @@ class FakeRepository() {
                 TestQuestion(0, "Question2", "Answer2")),
             authorName = "TestAuthor"
         ),
-        content = "Most of the advice I share is focused on infants, toddlers and preschoolers, but since my own children are now well past those years (my oldest just turned 21!), it occurred to me that I should be sharing more often from my “long view” perspective. Like most parents, I’ve had my worries. For instance, despite",
-        categories = listOf("Safety", "Food"))
+        content = "Most of the advice I share is focused on infants, toddlers and preschoolers, but since my own children are now well past those years (my oldest just turned 21!), it occurred to me that I should be sharing more often from my “long view” perspective. Like most parents, I’ve had my worries. For instance, despite"
+        , categories = listOf("Safety", "Food"), description = "description"
+    )
 
     private val entry2 = ArticleEntity(
         id = "oXSzsjXzzJbM0Nehz6OC",
+        author = "Author",
         title = "Title",
         test = TestEntity("oXSzsjXzzJbM0Nehz6rr",
             "oXSzsjXzzJbM0Nehz6OC",
@@ -53,8 +58,9 @@ class FakeRepository() {
                 TestQuestion(0, "Question2", "Answer2")),
             authorName = "TestAuthor"
         ),
-        content = "Most of the advice I share is focused on infants, toddlers and preschoolers, but since my own children are now well past those years (my oldest just turned 21!), it occurred to me that I should be sharing more often from my “long view” perspective. Like most parents, I’ve had my worries. For instance, despite",
-        categories = listOf("Safety", "Food"))
+        content = "Most of the advice I share is focused on infants, toddlers and preschoolers, but since my own children are now well past those years (my oldest just turned 21!), it occurred to me that I should be sharing more often from my “long view” perspective. Like most parents, I’ve had my worries. For instance, despite"
+        , categories = listOf("Safety", "Food"), description = "description"
+    )
 
 
     fun getRecommended(): List<ArticleEntity> {
@@ -65,8 +71,7 @@ class FakeRepository() {
         return listOf(entry0, entry1, entry2)
     }
 
-    suspend fun addTest(): String{
-        return "newtestid"
+    suspend fun addTest(){
     }
 
     suspend fun addTestFailed(): String{
@@ -79,5 +84,8 @@ class FakeRepository() {
 
     suspend fun getTestFailed(): TestEntity? {
         return null
+    }
+
+    suspend fun addArticle(articleEntity: ArticleEntity){
     }
 }

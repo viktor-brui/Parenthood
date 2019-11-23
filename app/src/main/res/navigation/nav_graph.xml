@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_sign_up">
         <action
             android:id="@+id/action_signUpFragment_to_articlesContainerFragment"
-            app:destination="@id/articlesContainerFragment"
+            app:destination="@id/articles_nav_graph"
             app:popUpTo="@+id/nav_graph"
             app:popUpToInclusive="true" />
     </fragment>
@@ -35,48 +35,63 @@
         tools:layout="@layout/fragment_sign_in">
         <action
             android:id="@+id/action_signInFragment_to_articlesContainerFragment"
-            app:destination="@id/articlesContainerFragment"
+            app:destination="@id/articles_nav_graph"
             app:popUpTo="@+id/nav_graph"
             app:popUpToInclusive="true" />
-    </fragment>
-    <fragment
-        android:id="@+id/articleFragment"
-        android:name="org.unicef.parenthood.ui.fragment.ArticleFragment"
-        android:label="fragment_article"
-        tools:layout="@layout/fragment_article">
-        <action
-            android:id="@+id/action_articleFragment_to_takeTestFragment"
-            app:destination="@id/takeTestFragment" />
-        <argument
-            android:name="article"
-            app:argType="org.unicef.parenthood.repository.model.ArticleEntity" />
-        <argument
-            android:name="upload"
-            app:argType="boolean" />
-    </fragment>
-    <fragment
-        android:id="@+id/takeTestFragment"
-        android:name="org.unicef.parenthood.ui.fragment.TakeTestFragment"
-        android:label="fragment_take_test"
-        tools:layout="@layout/fragment_take_test" />
-    <fragment
-        android:id="@+id/createTestFragment"
-        android:name="org.unicef.parenthood.ui.fragment.CreateTestFragment"
-        android:label="fragment_create_test"
-        tools:layout="@layout/fragment_create_test" />
-    <fragment
-        android:id="@+id/articlesContainerFragment"
-        android:name="org.unicef.parenthood.ui.fragment.ArticlesContainerFragment"
-        android:label="fragment_articles_container_test"
-        tools:layout="@layout/fragment_articles_container" >
-        <action
-            android:id="@+id/action_articlesContainerFragment_to_articleFragment"
-            app:destination="@id/articleFragment" />
     </fragment>
     <fragment
         android:id="@+id/onboardingContainerFragment"
         android:name="org.unicef.parenthood.ui.fragment.OnboardingContainerFragment"
         android:label="fragment_articles_container_test"
         tools:layout="@layout/fragment_onboarding_main" />
+    <navigation
+        android:id="@+id/articles_nav_graph"
+        app:startDestination="@id/articlesContainerFragment" >
+        <fragment
+            android:id="@+id/createTestFragment"
+            android:name="org.unicef.parenthood.ui.fragment.CreateTestFragment"
+            android:label="fragment_create_test"
+            tools:layout="@layout/fragment_create_test">
+            <argument
+                android:name="articleId"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/takeTestFragment"
+            android:name="org.unicef.parenthood.ui.fragment.TakeTestFragment"
+            android:label="fragment_take_test"
+            tools:layout="@layout/fragment_take_test">
+            <argument
+                android:name="testId"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/articleFragment"
+            android:name="org.unicef.parenthood.ui.fragment.ArticleFragment"
+            android:label="fragment_article"
+            tools:layout="@layout/fragment_article">
+            <action
+                android:id="@+id/action_articleFragment_to_takeTestFragment"
+                app:destination="@id/takeTestFragment" />
+            <argument
+                android:name="article"
+                app:argType="org.unicef.parenthood.repository.model.ArticleEntity" />
+            <argument
+                android:name="upload"
+                app:argType="boolean" />
+            <action
+                android:id="@+id/action_articleFragment_to_createTestFragment"
+                app:destination="@id/createTestFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/articlesContainerFragment"
+            android:name="org.unicef.parenthood.ui.fragment.ArticlesContainerFragment"
+            android:label="fragment_articles_container_test"
+            tools:layout="@layout/fragment_articles_container">
+            <action
+                android:id="@+id/action_articlesContainerFragment_to_articleFragment"
+                app:destination="@id/articleFragment" />
+        </fragment>
+    </navigation>
 
 </navigation>

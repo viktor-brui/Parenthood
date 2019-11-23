@@ -7,17 +7,18 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
+import org.unicef.parenthood.R
 import org.unicef.parenthood.adapter.ArticlesAdapter
 import org.unicef.parenthood.databinding.FragmentArticlesListBinding
 import org.unicef.parenthood.ui.viewmodel.ArticlesContainerViewModel
 
 class ArticlesListFragment : Fragment() {
 
-    private val viewModel: ArticlesContainerViewModel by viewModels(ownerProducer = { requireActivity() })
+    private val viewModel: ArticlesContainerViewModel by navGraphViewModels(R.id.articles_nav_graph)
     private lateinit var binding: FragmentArticlesListBinding
 
     private val tabPosition by lazy(LazyThreadSafetyMode.NONE) {

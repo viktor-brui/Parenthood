@@ -9,7 +9,7 @@ data class ArticleEntity(
     var id: String? = "",
     val author: String? = "",
     val title: String? = "",
-    val test: TestEntity? = TestEntity(),
+    val testId: String? = "",
     val content: String? = "",
     val categories: List<String> = emptyList(),
     val description: String? = "",

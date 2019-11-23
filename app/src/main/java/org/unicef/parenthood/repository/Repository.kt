@@ -14,17 +14,18 @@ import org.unicef.parenthood.repository.model.TestEntity
 /**
  * hub for network requests
  */
-class Repository() {
-    private val MAX_RANGE = 10 // maximum number of articles per feed
-    private val ARTICLES_COLLECTION = "articles"
-    private val TESTS_COLLECTION = "tests"
+class Repository {
+
+    private val pageCount = 10 // maximum number of articles per feed
+    private val articlesCollection = "articles"
+    private val testsCollection = "tests"
 
     private val urls = listOf("https://www.psychologytoday.com/intl/blog/singletons/feed")
 
     private val firestore = Firebase.firestore
 
     suspend fun getRecommended(): List<ArticleEntity> {
-        val articlesSnapshot = firestore.collection(ARTICLES_COLLECTION).get().await()
+        val articlesSnapshot = firestore.collection(articlesCollection).get().await()
         return articlesSnapshot.map { article ->
             article.toObject<ArticleEntity>().apply {
                 id = article.id
@@ -33,8 +34,7 @@ class Repository() {
     }
 
     suspend fun addArticle(articleEntity: ArticleEntity) {
-
-        val newArticle = hashMapOf(
+        val newArticle = mapOf(
             "author" to articleEntity.author,
             "categories" to articleEntity.categories,
             "content" to articleEntity.content,
@@ -44,48 +44,50 @@ class Repository() {
             "title" to articleEntity.title
         )
 
-        val snapshot = firestore.collection(TESTS_COLLECTION).document()
-        snapshot
+        firestore
+            .collection(articlesCollection)
+            .document()
             .set(newArticle)
-            .addOnSuccessListener {
-                //                todo
-            }
-            .addOnFailureListener {
-
-                //                   todo
-            }
+            .await()
     }
 
-    suspend fun addTest(testEntity: TestEntity) {
-
-        val newTest = hashMapOf(
-            "articleId" to testEntity.articleId,
+    suspend fun addTest(testEntity: TestEntity, articleId: String) {
+        val newTest = mapOf(
+            "testId" to testEntity.id,
             "questions" to testEntity.questions,
             "authorName" to testEntity.authorName
         )
-
-        firestore.collection(TESTS_COLLECTION).document() //???
+        firestore
+            .collection(testsCollection)
+            .document()
             .set(newTest)
-            .addOnSuccessListener {
-                //                todo
-            }
-            .addOnFailureListener {
+            .await()
 
-                //                   todo
-            }
+        val updatedArticle = firestore
+            .collection(articlesCollection)
+            .whereEqualTo("id", articleId)
+            .get()
+            .await()
+            .firstOrNull()
+            ?.data
+        if (updatedArticle != null) {
+            updatedArticle["testId"] = testEntity.id
+            firestore
+                .collection(articlesCollection)
+                .document()
+                .set(updatedArticle)
+                .await()
+        }
     }
 
-    suspend fun getTest(articleId: String): TestEntity? {
-        val query = firestore.collection(TESTS_COLLECTION).whereEqualTo("articleId", "CA")
-        val result =
-            query.get()
-                .addOnSuccessListener { documents ->
-                    documents.first()
-                }
-                .addOnFailureListener { exception ->
-                    //                Log.w(TAG, "Error getting documents: ", exception)
-                }.result
-        return result?.documents?.first()?.toObject(TestEntity::class.java)
+    suspend fun getTest(testId: String): TestEntity? {
+        return firestore
+            .collection(testsCollection)
+            .whereEqualTo("testId", testId)
+            .get()
+            .await()
+            .firstOrNull()
+            ?.toObject()
     }
 
     suspend fun getDiscoverable(): List<ArticleEntity> {
@@ -98,12 +100,12 @@ class Repository() {
         return withContext(Dispatchers.IO) {
             val parser = Parser()
             val list: List<Article> = parser.getArticles(url)
-            list.take(MAX_RANGE).map { article ->
+            list.take(pageCount).map { article ->
                 ArticleEntity(
                     id = article.guid,
                     author = article.author ?: "",
                     title = article.title ?: "",
-                    test = null,
+                    testId = "",
                     content = article.content ?: "",
                     categories = article.categories,
                     description = article.description ?: "",

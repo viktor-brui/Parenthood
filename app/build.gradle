@@ -62,6 +62,8 @@ dependencies {
     implementation "com.google.android.material:material:${versions.material_design}"
     implementation "androidx.viewpager2:viewpager2:${versions.androidx.viewpager2}"
 
+    implementation "io.coil-kt:coil:${versions.coil}"
+
     implementation "androidx.lifecycle:lifecycle-extensions:${versions.androidx.lifecycle}"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.androidx.lifecycle}"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:${versions.androidx.lifecycle}"

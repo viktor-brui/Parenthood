@@ -29,6 +29,7 @@
                         android:id="@+id/question_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:text="@string/question_1"
                         android:textSize="17sp"
                         android:textStyle="bold" />
@@ -40,7 +41,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="7dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="12dp"
                         android:hint="@string/your_question"
                         android:inputType="text|textMultiLine"
                         app:boxCornerRadiusBottomEnd="30dp"
@@ -106,6 +107,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/question_2"
+                        android:layout_marginTop="10dp"
                         android:textSize="17sp"
                         android:textStyle="bold" />
 
@@ -115,7 +117,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="7dp"
-                        android:layout_marginBottom="10sp"
+                        android:layout_marginBottom="12sp"
                         android:hint="@string/your_question"
                         android:inputType="text|textMultiLine"
                         app:boxCornerRadiusBottomEnd="30dp"
@@ -179,6 +181,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="Question 3"
+                        android:layout_marginTop="10dp"
                         android:textSize="17sp"
                         android:textStyle="bold" />
 
@@ -188,7 +191,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:layout_marginBottom="10sp"
+                        android:layout_marginBottom="12sp"
                         android:hint="@string/your_question"
                         android:inputType="text|textMultiLine"
                         app:boxCornerRadiusBottomEnd="30dp"
@@ -238,7 +241,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="64dp"
+                        android:layout_marginTop="45dp"
                         android:orientation="horizontal">
 
                         <Button

@@ -26,7 +26,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
             android:hint="@string/what_your_name"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:imeOptions="actionDone"
-                tools:layout_editor_absoluteY="121dp" />
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:hint="@string/email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:hint="@string/password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -102,62 +102,62 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                tools:layout_editor_absoluteY="121dp" />
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/choose_parent_role_text"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/who_are_you_gonna_be"
-            android:textSize="17sp"
-            app:layout_constraintBottom_toTopOf="@+id/parent_role_toggle_group"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <com.google.android.material.button.MaterialButtonToggleGroup
-            android:id="@+id/parent_role_toggle_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            app:singleSelection="true"
-            app:layout_constraintBottom_toTopOf="@+id/btn_register"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_mother"
-                style="@style/buttonBlueShape"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/marginLarge"
-                android:text="@string/mother"
-                tools:layout_editor_absoluteX="65dp"
-                tools:layout_editor_absoluteY="504dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_father"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/father"
-                style="@style/buttonBlueShape"
-                tools:layout_editor_absoluteX="204dp"
-                tools:layout_editor_absoluteY="504dp" />
-
-        </com.google.android.material.button.MaterialButtonToggleGroup>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_register"
-
-            android:layout_marginBottom="50dp"
-            style="@style/buttonStyleGreen"
-            android:text="@string/register"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="30dp">
+
+            <TextView
+                android:id="@+id/choose_parent_role_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="@dimen/marginNormal"
+                android:layout_marginEnd="20dp"
+                android:text="@string/who_are_you_gonna_be"
+                android:textSize="@dimen/txtLittleSize" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/parent_role_toggle_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_mother"
+                    style="@style/buttonBlueShape"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/marginLarge"
+                    android:text="@string/mother" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_father"
+                    style="@style/buttonBlueShape"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/father" />
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_register"
+                style="@style/buttonStyleGreen"
+                android:layout_width="150dp"
+                android:layout_gravity="center"
+                android:text="@string/register" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -5,13 +5,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
+import org.unicef.parenthood.util.Event
 
 class SignUpViewModel : ViewModel() {
-    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
     private val TAG = "SignUpViewModel"
-    private val _isSuccessfullSignUp = MutableLiveData<Boolean>()
-    val isSuccessfullSignUp: LiveData<Boolean>
-        get() = _isSuccessfullSignUp
+
+    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
+
+    private val _isSuccessfulSignUp = MutableLiveData<Event<Boolean>>()
+    val isSuccessfulSignUp: LiveData<Event<Boolean>>
+        get() = _isSuccessfulSignUp
 
     fun onRegisterClicked(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
@@ -19,11 +22,11 @@ class SignUpViewModel : ViewModel() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
-                    _isSuccessfullSignUp.value = true
+                    _isSuccessfulSignUp.value = Event(true)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    _isSuccessfullSignUp.value = false
+                    _isSuccessfulSignUp.value = Event(false)
                 }
             }
     }

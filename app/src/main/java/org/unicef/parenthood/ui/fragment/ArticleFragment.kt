@@ -6,20 +6,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.api.load
 import org.unicef.parenthood.databinding.FragmentArticleBinding
+import org.unicef.parenthood.ui.viewmodel.ArticleViewModel
 
 /**
  * Shows full article content
  */
 class ArticleFragment : Fragment() {
-    private lateinit var binding: FragmentArticleBinding
+
     private val args: ArticleFragmentArgs by navArgs()
 
+    private val viewModel: ArticleViewModel by viewModels()
+
+    private lateinit var binding: FragmentArticleBinding
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentArticleBinding.inflate(inflater, container, false)
@@ -36,6 +43,7 @@ class ArticleFragment : Fragment() {
         } else {
             binding.imgMain.isVisible = false
         }
+
         if (args.article.testId.isNullOrEmpty()) {
             binding.btnTest.isVisible = false
             binding.btnCreateTest.setOnClickListener {
@@ -50,6 +58,10 @@ class ArticleFragment : Fragment() {
                     .actionArticleFragmentToTakeTestFragment(requireNotNull(args.article.testId))
                 findNavController().navigate(direction)
             }
+        }
+
+        if (args.upload) {
+            viewModel.uploadArticle(args.article)
         }
     }
 }

@@ -74,17 +74,11 @@ class FakeRepository() {
     suspend fun addTest(){
     }
 
-    suspend fun addTestFailed(): String{
-        return "-1"
-    }
 
     suspend fun getTest(articleId: String): TestEntity? {
         return testEntity
     }
 
-    suspend fun getTestFailed(): TestEntity? {
-        return null
-    }
 
     suspend fun addArticle(articleEntity: ArticleEntity){
     }

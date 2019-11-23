@@ -7,11 +7,18 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.unicef.parenthood.repository.Repository
 import org.unicef.parenthood.repository.model.ArticleEntity
+import org.unicef.parenthood.util.Event
 
 class ArticlesContainerViewModel : ViewModel() {
+
+    private val repository = Repository()
+
     private val editorsPick = MutableLiveData<List<ArticleEntity>>()
     private val allArticles = MutableLiveData<List<ArticleEntity>>()
-    private val repository = Repository()
+
+    private val _onArticleClicked = MutableLiveData<Event<Pair<ArticleEntity, Boolean>>>()
+    val onArticleClicked: LiveData<Event<Pair<ArticleEntity, Boolean>>>
+        get() = _onArticleClicked
 
     init {
         loadArticles()
@@ -36,11 +43,15 @@ class ArticlesContainerViewModel : ViewModel() {
         }
     }
 
-    fun getArticlesById(position: Int): LiveData<List<ArticleEntity>> {
-        return when(position) {
+    fun getArticles(position: Int): LiveData<List<ArticleEntity>> {
+        return when (position) {
             0 -> editorsPick
             1 -> allArticles
             else -> throw IllegalStateException()
         }
+    }
+
+    fun onArticleClicked(article: ArticleEntity, upload: Boolean) {
+        _onArticleClicked.value = Event(article to upload)
     }
 }

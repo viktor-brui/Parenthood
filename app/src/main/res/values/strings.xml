@@ -15,15 +15,22 @@
     <string name="father">Father</string>
     <string name="register">Register</string>
     <string name="create_new_test_caption">Create a new Test for the Article</string>
-    <string name="passing_test">Прохождение теста</string>
+    <string name="passing_test">Passing test</string>
     <string name="your_answer">Your answer</string>
     <string name="your_question">Your question?</string>
     <string name="login">Login</string>
     <string name="who_are_you_gonna_be">Who are you gonna be?</string>
     <string name="sign_up">Sign up</string>
     <string name="sign_in">Sign in</string>
-    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
     <string name="hello_blank_fragment">hello-blank-fragment</string>
     <string name="tab_articles_main">Editor\'s Pick</string>
     <string name="tab_articles_other">All</string>
+    <string name="take_test">Take test</string>
+    <string name="create_test">Create test</string>
+    <string name="question_1">Question 1</string>
+    <string name="question_2">Question 2</string>
+    <string name="create">Create</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
 </resources>

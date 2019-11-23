@@ -11,6 +11,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_margin="10dp"
         android:text="@string/passing_test" />
 
@@ -38,9 +40,10 @@
                         android:id="@+id/tv_question_one"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="7sp"
                         android:text="@string/lorem_ipsum" />
-
-
 
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -55,6 +58,7 @@
                         app:boxCornerRadiusTopStart="30dp"
                         app:boxStrokeColor="@color/colorBlueLight"
                         app:boxStrokeWidth="3dp"
+                        android:layout_marginBottom="16sp"
                         android:inputType="text|textMultiLine"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
@@ -85,6 +89,9 @@
                         android:id="@+id/tv_question_two"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="7sp"
                         android:text="@string/lorem_ipsum" />
 
 
@@ -100,6 +107,7 @@
                         app:boxCornerRadiusTopStart="30dp"
                         app:boxStrokeColor="@color/colorBlueLight"
                         app:boxStrokeWidth="3dp"
+                        android:layout_marginBottom="16sp"
                         android:inputType="text|textMultiLine"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
@@ -129,6 +137,9 @@
                         android:id="@+id/tv_question_three"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="7sp"
                         android:text="@string/lorem_ipsum" />
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -143,18 +154,28 @@
                         app:boxCornerRadiusTopStart="30dp"
                         app:boxStrokeColor="@color/colorBlueLight"
                         app:boxStrokeWidth="3dp"
+                        android:layout_marginBottom="50dp"
                         android:inputType="text|textMultiLine"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_answer_three"
+                            android:id="@+id/layout_answer_three"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textPersonName" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/submit"
+                style="@style/buttonStyleGreen"
+                android:layout_marginStart="145dp"
+                android:layout_marginEnd="145dp"
+                android:gravity="center"/>
 
         </LinearLayout>
 

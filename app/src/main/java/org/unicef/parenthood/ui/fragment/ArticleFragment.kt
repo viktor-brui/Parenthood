@@ -65,6 +65,10 @@ class ArticleFragment : Fragment() {
             }
         }
 
+        binding.btnBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
         if (args.upload) {
             viewModel.uploadArticle(args.article)
         }

@@ -6,11 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
+import org.unicef.parenthood.R
 import org.unicef.parenthood.databinding.FragmentArticlesContainerBinding
+import org.unicef.parenthood.ui.viewmodel.ArticlesContainerViewModel
+import org.unicef.parenthood.util.observeEvent
 
 class ArticlesContainerFragment : Fragment() {
+
+    private val viewModel: ArticlesContainerViewModel by navGraphViewModels(R.id.articles_nav_graph)
 
     private lateinit var binding: FragmentArticlesContainerBinding
 
@@ -19,7 +26,6 @@ class ArticlesContainerFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // return inflater.inflate(R.layout.fragment_articles_container, container, false)
         binding = FragmentArticlesContainerBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -39,6 +45,15 @@ class ArticlesContainerFragment : Fragment() {
                 }
             }
         ).attach()
+
+        viewModel.onArticleClicked.observeEvent(viewLifecycleOwner) { (article, upload) ->
+            val direction =
+                ArticlesContainerFragmentDirections.actionArticlesContainerFragmentToArticleFragment(
+                    article = article,
+                    upload = upload
+                )
+            findNavController().navigate(direction)
+        }
     }
 
     class ViewPagerFragmentStateAdapter(

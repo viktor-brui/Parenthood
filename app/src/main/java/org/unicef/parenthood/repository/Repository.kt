@@ -56,27 +56,21 @@ class Repository() {
             }
     }
 
-    suspend fun addTest(testEntity: TestEntity) {
+    suspend fun addTest(testEntity: TestEntity, articleId: String) {
 
         val newTest = hashMapOf(
-            "articleId" to testEntity.articleId,
+            "testId" to testEntity.id,
             "questions" to testEntity.questions,
             "authorName" to testEntity.authorName
         )
-
+        val query = firestore.collection(ARTICLES_COLLECTION).whereEqualTo("id", articleId)
         firestore.collection(TESTS_COLLECTION).document() //???
             .set(newTest)
-            .addOnSuccessListener {
-                //                todo
-            }
-            .addOnFailureListener {
-
-                //                   todo
-            }
+            .await()
     }
 
-    suspend fun getTest(articleId: String): TestEntity? {
-        val query = firestore.collection(TESTS_COLLECTION).whereEqualTo("articleId", "CA")
+    suspend fun getTest(testId: String): TestEntity? {
+        val query = firestore.collection(TESTS_COLLECTION).whereEqualTo("testId", testId)
         val result =
             query.get()
                 .addOnSuccessListener { documents ->
@@ -103,7 +97,7 @@ class Repository() {
                     id = article.guid,
                     author = article.author ?: "",
                     title = article.title ?: "",
-                    test = null,
+                    testId = "",
                     content = article.content ?: "",
                     categories = article.categories,
                     description = article.description ?: "",

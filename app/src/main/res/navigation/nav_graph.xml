@@ -53,17 +53,28 @@
         <argument
             android:name="upload"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_articleFragment_to_createTestFragment"
+            app:destination="@id/createTestFragment" />
     </fragment>
     <fragment
         android:id="@+id/takeTestFragment"
         android:name="org.unicef.parenthood.ui.fragment.TakeTestFragment"
         android:label="fragment_take_test"
-        tools:layout="@layout/fragment_take_test" />
+        tools:layout="@layout/fragment_take_test" >
+        <argument
+            android:name="testId"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/createTestFragment"
         android:name="org.unicef.parenthood.ui.fragment.CreateTestFragment"
         android:label="fragment_create_test"
-        tools:layout="@layout/fragment_create_test" />
+        tools:layout="@layout/fragment_create_test" >
+        <argument
+            android:name="articleId"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/articlesContainerFragment"
         android:name="org.unicef.parenthood.ui.fragment.ArticlesContainerFragment"

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.api.load
 import org.unicef.parenthood.databinding.FragmentArticleBinding
@@ -34,6 +35,21 @@ class ArticleFragment : Fragment() {
             binding.imgMain.load(args.article.mainImage)
         } else {
             binding.imgMain.isVisible = false
+        }
+        if (args.article.testId.isNullOrEmpty()) {
+            binding.btnTest.isVisible = false
+            binding.btnCreateTest.setOnClickListener {
+                val direction = ArticleFragmentDirections
+                    .actionArticleFragmentToCreateTestFragment(requireNotNull(args.article.id))
+                findNavController().navigate(direction)
+            }
+        } else {
+            binding.btnCreateTest.isVisible = false
+            binding.btnTest.setOnClickListener {
+                val direction = ArticleFragmentDirections
+                    .actionArticleFragmentToTakeTestFragment(requireNotNull(args.article.testId))
+                findNavController().navigate(direction)
+            }
         }
     }
 }

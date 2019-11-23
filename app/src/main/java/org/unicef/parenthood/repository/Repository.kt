@@ -22,8 +22,7 @@ class Repository() {
     private val recommendedArticles: MutableList<ArticleEntity?> = mutableListOf()
     private val discoveryArticles: MutableList<ArticleEntity> = mutableListOf()
 
-    private val urls = listOf("https://www.psychologytoday.com/intl/blog/singletons/feed",
-        "https://www.janetlansbury.com/feed/")
+    private val urls = listOf("https://www.psychologytoday.com/intl/blog/singletons/feed")
 
     val firestore = Firebase.firestore
 

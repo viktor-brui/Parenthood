@@ -38,7 +38,7 @@ class SignInFragment : Fragment() {
         viewModel.isSuccessfulLogin.observeEvent(viewLifecycleOwner) { isSuccessful ->
             if (isSuccessful) {
                 val direction = SignInFragmentDirections
-                    .actionSignInFragmentToMenuFragment()
+                    .actionSignInFragmentToArticlesContainerFragment()
                 findNavController().navigate(direction)
             } else {
                 toast("Login failed")

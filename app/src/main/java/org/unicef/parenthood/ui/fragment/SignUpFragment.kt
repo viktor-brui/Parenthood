@@ -35,7 +35,8 @@ class SignUpFragment : Fragment() {
         }
 
         viewModel.isSuccessfulSignUp.observeEvent(viewLifecycleOwner) { isSuccessful ->
-            val direction = SignUpFragmentDirections.actionSignUpFragmentToMenuFragment()
+            val direction = SignUpFragmentDirections
+                .actionSignUpFragmentToArticlesContainerFragment()
             if (isSuccessful) {
                 findNavController().navigate(direction)
             } else {

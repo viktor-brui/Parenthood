@@ -33,4 +33,7 @@
     <string name="create">Create</string>
     <string name="cancel">Cancel</string>
     <string name="submit">Submit</string>
+    <string name="onboarding_step_one">Read</string>
+    <string name="onboarding_step_two">Complete tests</string>
+    <string name="onboarding_step_three">Help others\nCreate your own tests</string>
 </resources>

@@ -11,9 +11,9 @@ class OnboardingContainerPageAdapter :
     RecyclerView.Adapter<OnboardingContainerPageAdapter.PagerVH>() {
 
     private val elements = listOf(
-        "Hello World" to R.drawable.s1,
-        "Lets go" to R.drawable.s2,
-        "Cool" to R.drawable.s3
+        R.string.onboarding_step_one to R.drawable.s1,
+        R.string.onboarding_step_two to R.drawable.s2,
+        R.string.onboarding_step_three to R.drawable.s3
     )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerVH =
@@ -28,9 +28,9 @@ class OnboardingContainerPageAdapter :
     override fun getItemCount(): Int = elements.size // +
 
     override fun onBindViewHolder(holder: PagerVH, position: Int) {
-        val (text, image) = elements[position]
+        val (res, image) = elements[position]
         holder.itemView.run {
-            tv_caption.text = text
+            tv_caption.text = resources.getString(res)
             img_screenshot.setImageResource(image)
         }
     }

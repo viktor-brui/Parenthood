@@ -84,5 +84,10 @@
             android:id="@+id/action_articlesContainerFragment_to_articleFragment"
             app:destination="@id/articleFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/onboardingContainerFragment"
+        android:name="org.unicef.parenthood.ui.fragment.OnboardingContainerFragment"
+        android:label="fragment_articles_container_test"
+        tools:layout="@layout/fragment_onboarding_main" />
 
 </navigation>

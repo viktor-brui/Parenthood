@@ -28,6 +28,8 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         binding.btnRegister.setOnClickListener {
             val email = binding.emailInputEditTextRegister.text.toString()
             val password = binding.passwordInputEditTextRegister.text.toString()

@@ -4,7 +4,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.prof.rssparser.Article
-import com.prof.rssparser.Parser
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
@@ -101,7 +100,7 @@ class Repository {
 
     private suspend fun fetchFeed(url: String): List<ArticleEntity> {
         return withContext(Dispatchers.IO) {
-            val parser = Parser()
+            val parser = com.prof.rssparser.Parser()
             val list: List<Article> = parser.getArticles(url)
             list.take(pageCount).map { article ->
                 ArticleEntity(

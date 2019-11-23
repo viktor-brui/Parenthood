@@ -101,7 +101,7 @@
                 android:text="Введите ответ"/>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_answer_three"
+                android:id="@+id/et_answer_three"
                 android:hint="Введите ответ"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
